@@ -1,5 +1,6 @@
 from functools import reduce
 def addStr(arg1, arg2):
+    tempAddStr = ""
     # 防止使用者传入数字, 导致len()函数报错
     arg1, arg2 = setToStr(arg1, arg2)
     # 存放元素的长度用于判断最小循环次数
@@ -11,13 +12,21 @@ def addStr(arg1, arg2):
         if arg1[-i:] == arg2[:i]:
             # 把符合规则的字符串连起来并保存
             tempAddStr = arg1[0:lenArg1-i]+arg2
-    return tempAddStr
+    if tempAddStr == "":
+        return arg1+arg2
+    else:
+        return tempAddStr
 
 def setToStr(set1, set2):
     return str(set1), str(set2)
 
 if __name__ == "__main__":
     print(reduce(addStr, ["pizza","apple","letter"]))
+    print(reduce(addStr, ["abcfff","bcd","cde"]))
+
+
+
+
     # 测试用
     # print("asd"[-2:])
     # print("sda"[:2])
