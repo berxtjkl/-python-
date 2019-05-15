@@ -1,26 +1,23 @@
-# from functools import reduce
+# 根据最大字串长度设置前缀0
 def add0AtFront(*arg):
-	resultList = []
+	print(arg)
+	maxLengthOne = getMaxLength(arg)
 	for i in arg:
-		print(len(str(i)))
-		maxLengthOne = 0
+		# print(maxLengthOne-len(str(i)))
+		tempSubfix0 = (maxLengthOne-len(str(i)))*'0'
+		print(''.join([str(tempSubfix0), str(i)]))
+# 获取字符串组中最长的字串并返回
+def getMaxLength(arg):
+	resultList = []
+	maxLengthOne = 0
+	print(arg)	
+	for i in arg:
+		# print(maxLengthOne)
+		# print(str(i),1)
 		if len(str(i))>maxLengthOne:
 			maxLengthOne = len(str(i)) + 1
-		print(maxLengthOne)
-	for i in arg:
-		tempSubfix0 = maxLengthOne-len(str(i))
-		tempSubfix0 = tempSubfix0*'0'
-		print(''.join([str(tempSubfix0), str(i)]))
-
+	# print(maxLengthOne)
+	return maxLengthOne
 
 if __name__ == "__main__":
     add0AtFront(1323,123123123,1,2222)
-
-
-
-
-    # 测试用
-    # print("asd"[-2:])
-    # print("sda"[:2])
-    # print("asd"[0:3-2]+"sda")
-    # print(len("sd"))
