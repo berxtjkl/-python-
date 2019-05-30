@@ -1,23 +1,30 @@
-# 根据最大字串长度设置前缀0
-def add0AtFront(*arg):
-	print(arg)
-	maxLengthOne = getMaxLength(arg)
-	for i in arg:
-		# print(maxLengthOne-len(str(i)))
-		tempSubfix0 = (maxLengthOne-len(str(i)))*'0'
-		print(''.join([str(tempSubfix0), str(i)]))
-# 获取字符串组中最长的字串并返回
-def getMaxLength(arg):
-	resultList = []
-	maxLengthOne = 0
-	print(arg)	
-	for i in arg:
-		# print(maxLengthOne)
-		# print(str(i),1)
-		if len(str(i))>maxLengthOne:
-			maxLengthOne = len(str(i)) + 1
-	# print(maxLengthOne)
-	return maxLengthOne
+# 检查是否存在字母和数字
+def checkDigitalAlpha(arg):
+	for x in arg:
+		if x.isdigit() or x.isalpha():
+			print(x)
+		else:
+			print("含有数字和字母以外的字符串")
+
+# 检查字符长度
+def checkLength(arg):
+	if len(arg)>=6:
+		print("长度超过6")
+	else:
+		print("长度小于6")
+
+# 检查是否有三个一样的
+def checkThreeRepeat(arg):
+	count = 0
+	for x in range(len(arg)-1):
+		if arg[x] == arg[x+1]:
+			count += 1
+		else:
+			count = 0
+		if count == 2:
+			print("三个连续一样的")
 
 if __name__ == "__main__":
-    add0AtFront(1323,123123123,1,2222)
+	checkDigitalAlpha("123klj")
+	checkLength("123kl")
+	checkThreeRepeat("1233")
